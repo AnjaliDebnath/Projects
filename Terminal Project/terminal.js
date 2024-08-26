@@ -161,6 +161,12 @@ async function dateFunction() {
    getCharacterByCharacter(str1);
 }
 
+async function errorFunction() {
+  animatedText.innerHTML = '';
+  let language = await langUsed(); // Rename to avoid conflict
+  let strContent = `${language[0]} (${language[1]})! Whoops, this cannot be done. Please use one of the following available commands: help, resume, about, linkedin, random, github, contact, date. ;
+}
+
 function checkInputValue(input) {
   command(input);
   line2.style.display = "none";
@@ -190,7 +196,9 @@ function checkInputValue(input) {
     case "date":
         dateFunction();
         break;
-    case default:
+    default:
+      errorFunction();
+      break;
         
 
 
@@ -203,4 +211,31 @@ function inputCommand(e) {
 
 //execution starts from here after pressing enter
 help.addEventListener("keypress", inputCommand);
+
+
+
+let minmax = document.querySelector(".button minimize");
+
+    minmax.addEventListener("click", minmaxTab);
+
+    function minmaxTab() {
+      if (terminal.style.height === "100vh") {
+        Terminal.style.height = "50vh";
+        Terminal.style.width = "100%";
+        Terminal.style.maxWidth = "900px";
+      } else {
+        Terminal.style.height = "100vh";
+        Terminal.style.width = "100%";
+        Terminal.style.maxWidth = "100%";
+      }
+    }
+
+    let close = document.querySelector(".close");
+    close.addEventListener("click", closeTab);
+
+    function closeTab() {
+      window.close();
+    }
+  })
+  .catch((error) => console.error("Error fetching the JSON file:", error));
 
