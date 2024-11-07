@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="students-container">
+        <ul id="students-list" class="students-list">
+            <!-- Student list will be populated by JavaScript -->
+        </ul>
+    </div>
+
+    <div class="pagination-container">
+        <!-- Previous and Next buttons -->
+        <div class="prev-next-container">
+            <button id="prev-btn" class="prev-next-btn" onclick="goToPreviousPage()">&#10094; Previous</button>
+            <button id="next-btn" class="prev-next-btn" onclick="goToNextPage()">Next &#10095;</button>
+        </div>
+        <ul id="pagination" class="pagination">
+            <!-- Pagination buttons will be created dynamically -->
+        </ul>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
